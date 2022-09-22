@@ -1,0 +1,26 @@
+picobot map 1:
+
+0 **x* -> W 0
+0 x*W* -> N 0
+0 N*W* -> X 1
+1 ***x -> S 1
+1 ***S -> E 2
+2 x*** -> N 2
+2 N*** -> E 1
+
+picobot map 2:
+
+0 xE** -> N 0
+0 *x** -> E 1
+0 NE** -> X 2
+1 *x*S -> E 1
+1 ***x -> S 2
+1 *E*S -> X 3
+2 **Wx -> S 2
+2 **x* -> W 3
+2 **WS -> X 0
+3 N*x* -> W 3
+3 x*** -> N 0
+3 N*W* -> X 1
+
+I pledge my honor that I have abided by the Stevens Honor System.  -Max Shi

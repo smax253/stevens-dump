@@ -1,0 +1,101 @@
+/* Put your solutions to the assignment here */
+body{
+    background-color: #eee;
+}
+
+header{
+    background-color: #49516f;
+    display: flex;
+    align-items: center;
+    padding: 20px 0px;
+}
+header h1{
+    margin: 0px;
+    color:white;
+}
+header span{
+    margin: 0px;
+    color: white;
+}
+.logo{
+    padding: 5px;
+    margin: 10px;
+    height: 100px;
+    width: 100px;
+    border: 5px solid white;
+}
+.posts{
+    display:flex;
+    flex-wrap: wrap;
+}
+.post{
+    flex-grow:1;
+}
+.post-body{
+    height:200px;
+    width:100%;
+}
+.post-container{
+    display:flex;
+    margin: 10px;
+    padding: 10px;
+    background-color: white;
+    align-items:center;
+}
+.post-pic{
+    height:200px;
+    width:200px;
+    margin: 0px 10px 0px 0px;
+}
+@media only screen and (min-width:999px){
+    .posts{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .post{
+        max-width: 800px;
+        flex-grow: 1;
+        width:100%;
+    }
+}
+@media only screen and (min-width:400px) and (max-width: 998px){
+    header{
+        justify-content: center;
+    }
+    .posts{
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+    .post-container{
+        flex-direction: column;
+    }
+    .post{
+        flex-basis: 50%;
+    }
+    .post-pic{
+        width: 100%;
+        height: auto;
+    }
+}
+@media only screen and (max-width: 399px){
+    header{
+        flex-direction: column;
+        text-align: center;
+    }
+    .posts{
+        flex-basis: auto;
+        flex-direction: column;
+    }
+    .logo{
+        border-radius: 50%;
+    }
+    .post-container{
+        flex-direction: column;
+    }
+    
+    .post-pic{
+        width:100%;
+        height: auto;
+    }
+}

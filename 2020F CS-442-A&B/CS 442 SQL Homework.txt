@@ -1,0 +1,60 @@
+Max Shi
+I pledge my honor that I have abided by the Stevens Honor System.
+
+1.
+SELECT E.ename 
+FROM Emp E, Works W, Dept D
+WHERE E.eid=W.eid AND W.did=D.did AND D.dname='Hardware'
+
+2.
+SELECT E.ename
+FROM Emp E, Works W, Dept D 
+WHERE E.eid=W.eid AND W.did=D.did AND D.dname='Hardware' AND E.salary>=
+	(SELECT MAX(E1.salary)
+	FROM Emp E1, Works W1, Dept D1 
+	WHERE E1.eid=W1.eid AND W1.did=D1.did AND D1.dname='Hardware')
+
+3.
+SELECT E.ename, E.age
+FROM Emp E, Works W1, Works W2, Dept D1, Dept D2
+WHERE E.eid=W1.eid AND W1.did=D1.did AND D1.dname='Hardware' AND E.eid=W2.eid AND W2.did=D2.did AND D2.dname='Software'
+
+4.
+SELECT managerid 
+FROM (SELECT managerid, SUM(budget) AS totalbudget
+		FROM Dept
+		GROUP BY managerid) AS BudgetTable
+WHERE totalbudget = (SELECT MAX(totalbudget) FROM BudgetTable)
+
+5. 
+SELECT managerid 
+FROM Dept
+WHERE budget >= 1000000
+
+6.
+SELECT E.ename
+FROM Emp E, Works W, Dept D
+WHERE E.eid=W.eid AND W.did=D.did AND E.salary > D.budget
+
+7.
+SELECT E.ename
+FROM Emp E, Dept D
+WHERE e.eid=D.managerid AND D.budget=(SELECT MAX(budget) FROM Dept)
+
+8.
+SELECT * 
+FROM Dept NATURAL JOIN 
+		(SELECT did, AVG(salary) AS averagesalary
+		FROM Dept NATURAL JOIN Works NATURAL JOIN Emp
+		GROUP BY did)
+
+9.
+SELECT E.ename
+FROM Emp E
+WHERE E.ename IN
+	(SELECT ename
+	FROM Emp NATURAL JOIN Works
+	GROUP BY ename
+	HAVING COUNT(did)>3)
+	
+	
